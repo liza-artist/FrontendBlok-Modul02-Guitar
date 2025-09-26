@@ -23,9 +23,13 @@ button {
     font-size: 32px;
     font-weight: 700;
     letter-spacing: 1.6px;
+    line-height: 110%;
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 0;
+    @media(max-width: $r_mobile_600){
+        font-size: 18px;
+    }
 }
 
 .header {
@@ -37,6 +41,13 @@ button {
     position: fixed;
     top: 0;
     z-index: 999;
+    @media (max-width: $r_tab){
+        height: 66px;
+    }
+    @media (max-width:($r_tab - 20px)){
+        height: 40px;
+        background-color: $accent;
+    }
     &::before{
         content: '';
         display: block;
@@ -47,6 +58,12 @@ button {
         top: 0;
         left: 0;
         z-index: -1;
+        @media (max-width: $r_tab){
+            top: -2px;
+        }
+        @media (max-width:($r_tab - 20px)){
+            display: none;
+        }
     }
    
     &__logo{
@@ -56,6 +73,9 @@ button {
         position: relative;
         @media (max-width: $r_desk){
             padding: 17px 20px 0 20px;
+        }
+        @media(max-width: $r_tab){
+            padding: 5px 15px 0 15px;
         }
         &::before{
             content: '';
@@ -78,15 +98,30 @@ button {
             position: absolute;
             top: 0;
             right: -68px;
+            @media (max-width: $r_tab){
+                height: 66px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                right: -66px;
+            }
+            @media (max-width:($r_tab - 20px)){
+                display: none;
+            }
         }
     }
     &__info{
         background-color: $accent;
-        padding: 17px 45px 0 45px;
+        padding: 23px 17px 0 45px;
         position: relative;
         border-radius: 0 10px 0 0;
         @media (max-width: $r_desk){
             padding: 17px 20px 0 20px;
+        }
+        @media (max-width: $r_tab){
+            padding: 20px 20px 0 20px;
+        }
+        @media(max-width: ($r_tab - 20px)){
+            padding: 7px 15px 0 15px;
         }
         &::before{
             content: '';
@@ -108,8 +143,17 @@ button {
             background-image: url(../images/header-right.svg);
             position: absolute;
             top: 0;
-           /*  right: -68px; */
-            right: 306px;
+            left: -68px;
+           /*  right: 306px; */
+             @media (max-width: $r_tab){
+                height: 66px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                left: -60px;
+            }
+            @media (max-width:($r_tab - 20px)){
+                display: none;
+            }
         }
     }
     &__link{
@@ -123,6 +167,13 @@ button {
                 border-bottom: 1px solid $accent;
             }
         }  
+        @media (max-width: $r_tab){
+            font-size: 16px;
+        }
+         @media (max-width: $r_mobile_600){
+            font-size: 10px;
+            padding-bottom: 3px;
+        }
     }
 }
 
@@ -131,6 +182,12 @@ button {
         svg{
             width: 400px;
             height: 31px;
+            @media (max-width: $r_desk){
+                width: clamp(300px, 39vw, 400px);
+            }
+            @media (max-width: $r_mobile_600){
+                width: 150px;
+            }
         }
     }
     &._min{
@@ -142,7 +199,7 @@ button {
 }
 .container {
     width: 100%;
-    max-width: 1830px;
+    max-width: 1920px;
     margin: 0 auto;
     padding-left: 45px;
     padding-right: 45px;
@@ -162,16 +219,34 @@ button {
     padding: 100px 50px;
     margin-top: 135px;
     gap: 50px;
-
+    @media(max-width: $r_desk_full){
+        flex-direction: column;
+        padding: 80px 40px;
+    }
+    @media (max-width: ($r_desk - 24px)){
+        padding: 50px 30px;
+    }
+    @media(max-width: ($r_tab - 20px)){
+        margin-top: 88px;
+        margin-bottom: 70px;
+    }
     &__main {
-        flex-basis: 61%;
+        flex-basis: 60.5%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
     &__info {
-        flex-basis: calc(39% - 50px);
+        flex-basis: calc(39.5% - 50px);
+        @media (max-width: $r_desk_full){
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        @media (max-width:($r_tab - 20px)){
+            grid-template-columns: 1fr;
+        }
     }
 
     &__item {
@@ -205,9 +280,24 @@ button {
                 }
             }
         }
+        @media(max-width: $r_desk_full){
+            padding: 30px 0 30px 30px;
+        }
+
+        @media (max-width: ($r_desk - 24px)){
+            height: inherit;
+            justify-content: center;
+            padding: 24px 10px 24px 100px;
+            margin-right: 0;
+            border-right: 1px solid $light;
+            border-radius: $br-min;
+        }
 
         & + & {
             margin-top: 19px;
+            @media (max-width: $r_desk_full){
+                margin-top: 0;
+            }
         }
 
         &::before{
@@ -234,11 +324,18 @@ button {
         font-size: 24px;
         font-weight: 200;
         margin: 0;
+        @media (max-width: ($r_desk - 24px)){
+            font-size: 18px;
+        }
         span {
             display: block;
             font-size: 32px;
             font-weight: 700;
             margin-top: 20px;
+            @media (max-width: ($r_desk - 24px)){
+                font-size: 20px;
+                margin-top: 12px;
+            }
         }
     }
 
@@ -255,6 +352,11 @@ button {
         border-radius: 10px;
         box-sizing: border-box;
         transition: $tr;
+        @media (max-width: ($r_desk - 24px)){
+            top: calc(50% - 25px);
+            right: inherit;
+            left: 30px;
+        }
          &::before {
             content: '';
             display: block;
@@ -266,6 +368,9 @@ button {
             position: absolute;
             right: 0;
             top: -1px;
+            @media (max-width: ($r_desk - 24px)){
+                display: none;
+            }
         }
         &::after {
             content: '';
@@ -291,6 +396,12 @@ button {
         line-height: 110%;
         margin-top: 0;
         margin-bottom: 20px;
+        @media(max-width: $r_desk_full){
+            font-size: clamp(50px, 4vw + 1rem, 64px);
+        }
+        @media(max-width: $r_tab){
+            font-size: 40px;
+        }
     }
 
      &__btn {
@@ -304,13 +415,16 @@ button {
         background-color: $accent;
         border: 1px solid $accent;
         border-radius: $br-min;
-        padding: 30px;
+        padding: 52px;
         transition: $tr;
         cursor: pointer;
         @media (hover: hover){
             &:hover {
                 background-color: transparent;
             }
+        }
+        @media(max-width: $r_desk_full){
+            margin-top: 50px;
         }
         
     }
@@ -319,16 +433,32 @@ button {
 .banner-box {
     border: 1px solid $light;
     border-radius: $br-min;
-    padding: 30px 332px 30px 30px;
+    padding: 30px 332px 27px 30px;
     position: relative;
-
+    @media(max-width: $r_desk_full_over){
+        padding-right: clamp(200px, 20vw, 332px);
+    }
+    @media(max-width: $r_desk_full){
+        padding-right: 332px;
+    }
+    @media(max-width: $r_tab){
+        padding-right: clamp(150px, 33vw, 252px);
+        top: -10px;
+    }
+    @media(max-width: ($r_tab - 20px)){
+        padding: 15px;
+    }
     &__title {
         font-size: 24px;
         font-weight: 400;
         letter-spacing: 1.2px;
         text-transform: uppercase;
         margin-top: 0;
-        margin-bottom: 30px;
+        margin-bottom: 39px;
+        text-wrap: nowrap;
+        @media(max-width: $r_tab){
+            font-size: clamp(18px, 1.5vw + 0.8rem, 24px);
+        }
     }
 
     &__text {
@@ -337,18 +467,39 @@ button {
         line-height: 150%;
         margin-top: 0;
         margin-bottom: 0;
+        max-width: 95%;
+        @media(max-width: $r_desk_full){
+            max-width: 572px;
+        }   
+        @media(max-width: $r_tab){
+            font-size: clamp(14px, 2.7vw, 20px);
+        }
+        
     }
-
-
-  
-
 
     &__img {
         position: absolute;
-        
+        @media(max-width: ($r_tab - 20px)){
+            display: none;
+        }
         &._electroguitar{
             top: -68px;
             right: -20px;
+            @media(max-width: $r_desk_full_over){
+                width: clamp(200px, 22vw, 332px);
+                top: inherit;
+                bottom: -68px;
+            }
+            @media(max-width: $r_desk_full){
+                width: auto;
+                top: -68px;
+                bottom: inherit;
+            }
+            @media(max-width: $r_tab){
+                width: clamp(150px, 33vw, 252px);
+                top: -10px;
+            }
+           
         }
     }
 
@@ -359,8 +510,19 @@ button {
     display: flex;
     gap: 64px;
     animation: move-left 20s infinite linear alternate;
-    margin-top: 150px;
-    margin-bottom: 150px;
+    margin-top: 126px;
+    margin-bottom: 127px;
+    @media (max-width: $r_desk){
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+      @media (max-width: $r_tab){
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+    @media(max-width: ($r_tab - 20px)){
+        display: none;
+    }
     @media (hover:hover){
         &:hover {
             animation-play-state: paused;
@@ -369,7 +531,7 @@ button {
     &__text{
         font-size: 24px;
         font-weight: 200;
-        padding: 10px 20px;
+        padding: 13px 20px;
         border: 1px solid $grey;
         border-radius: $br-max;
         position: relative;
@@ -399,22 +561,55 @@ button {
     display: flex;
     gap: 70px;
     margin-bottom: 150px;
+    @media (max-width: $r_desk_full){
+        flex-direction: column;
+        gap: 30px;
+    }
+    @media (max-width: $r_desk){
+        margin-bottom: 100px;
+    }
+      @media (max-width: $r_tab){
+        margin-bottom: 80px;
+    }
     &__title {
         flex-basis: 395px;
+        @media (max-width: $r_desk_full){
+            flex-basis: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        @media (max-width: $r_mobile_600){
+            align-items: center;
+        }
     }
     &__control {
         margin-top: 40px;
+        @media (max-width: $r_desk_full){
+            margin-top: 0;
+        }
     }
     &__content{
         width: calc(100% - 395px - 70px);
-       
+        @media (max-width: $r_desk_full){
+            flex-basis: auto;
+            width: 100%;
+        }
+    }
+    &__schedule{
+        margin-top: 50px;
     }
 }
 
 .course-control {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 17px;
+    @media(max-width: $r_tab){
+        gap: 16px;
+    }
+    @media (max-width: $r_mobile_600){
+        gap: 10px;
+    }
     &__prev, &__next{
         display: flex;
         align-items: center;
@@ -428,6 +623,15 @@ button {
         left: inherit;
         position: inherit;
         transition: $tr;
+        @media(max-width: $r_tab){
+            width: 50px;
+            height: 50px;
+            margin-top: 0;
+        }
+        @media (max-width: $r_mobile_600){
+            width: 40px;
+            height: 40px;
+        }
         @media (hover:hover){
             &:hover {
                 background-color: $accent;
@@ -441,6 +645,14 @@ button {
             height: 24px;
             background-repeat: no-repeat;
             background-size: contain;
+            @media(max-width: $r_tab){
+                width: 32px;
+                height: 16px;
+            }
+            @media (max-width: $r_mobile_600){
+                width: 25px;
+                height: 12px;
+            }
         }
     }
     &__prev{ 
@@ -457,14 +669,22 @@ button {
 
 .slider-teacher {
     &__item {
-        height: 707px;
+        height: min(707px, 37vw);
         background-color: $dark;
         border: 1px solid $dark;
         border-radius: $br-max;
+        box-sizing: border-box;
         position: relative;
+        z-index: 2;
         overflow: hidden;
         transition: $tr;
-        margin-bottom: 50px;
+       /*  margin-bottom: 50px; */
+        @media (max-width: $r_desk_full){
+            height: min(672px, 47vw);
+        }
+        @media (max-width: $r_tab){
+            border: 1px solid $accent;
+        }
         @media (hover:hover){
             &:hover {
                 border-color: $accent;
@@ -486,14 +706,17 @@ button {
     }
     &__img{
         width: 100%;
-        height: 637px;
+        height: min(637px, 32vw);
         object-fit: cover;
         position: absolute;
         bottom: 0;
+        @media (max-width: $r_desk_full){
+            height: min(615px, 43vw);
+        }
     }
     &__name{
         width: 100%;
-        font-size: 24px;
+        font-size: clamp(16px, 2vw - 0.75rem, 24px);
         font-weight: 400;
         position: absolute;
         bottom: 30px;
@@ -503,6 +726,30 @@ button {
         opacity: 0;
         transition: $tr;
         z-index: 1;
+        @media (max-width: $r_desk_full){
+            text-align: center;
+            left: 0;
+        }
+        &._desktop {
+            @media (max-width: $r_tab){
+                display: none;
+            }
+        }
+        &._mobile{
+            display: none;
+            font-size: 12px;
+            margin-top: 8px;
+            position: inherit;
+            bottom: inherit;
+            left: inherit;
+            opacity: 1;
+            @media (max-width: $r_tab){
+                display: block;
+            }
+            &::before {
+                display: none;
+            }
+        }
         &::before {
             content: '';
             display: block;
@@ -514,6 +761,9 @@ button {
             left: -30%;
             bottom: -30%;
             z-index: -1;
+            @media (max-width: $r_desk_full){
+                left: 0;
+            }
         }
     }
 }
@@ -554,7 +804,7 @@ button {
         transition: max-height 0.2s ease-out;
         background-color: $light;
         border-radius: $br-min;
-        padding: 30px 50px;
+        padding: 14px 50px 17px 50px;
     }
     &__list{
         list-style-type: none;
@@ -563,11 +813,13 @@ button {
     &__item {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 6px;
+        font-size: 24px;
+        line-height: 110%;
         font-weight: 300;
         color: $dark;
         & + &{
-            margin-top: 30px;
+            margin-top: 44px;
         }
         &::before{
             content: '—';
@@ -583,16 +835,33 @@ button {
     padding-bottom: 150px;
     max-width: 1920px;
     margin: 0 auto;
+    @media (max-width: $r_desk){
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    @media (max-width: $r_tab){
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
     &__list{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
+        gap: 23px;
         margin-top: 50px;
+        @media (max-width: $r_desk_full){
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: $r_tab){
+            gap: 20px;
+        }
+        @media (max-width: $r_mobile_600){
+            grid-template-columns: 1fr;
+        }
     }
     &__item{
         background-color: $light;
         border-radius: $br-max;
-        padding: 30px;
+        padding: 30px 30px 25px 30px;
     }
     &__text{
         font-size: 16px;
@@ -601,22 +870,76 @@ button {
         margin-top: 20px;
         margin-bottom: 0;
         letter-spacing: -0.005em;
+        @media (max-width: $r_mobile_600){
+            font-size: 12px;
+        }
+    }
+    &__icon {
+        @media (max-width: $r_mobile_600){
+            width: 40px;
+            height: 40px;
+        }
     }
 }
 
 .result {
     margin-top: 150px;
     margin-bottom: 150px;
+    container-type: inline-size;
+    container-name: result;
+    @container result(max-width: 935px){
+        .result__list{
+            grid-template-columns: repeat(2, 1fr);
+            padding-bottom: 140px;
+        }
+        .result__item._subgrid{
+            grid-column: inherit;
+            grid-template-columns: inherit;
+        }
+        .result__btn {
+            width: 100%;
+            grid-column: inherit;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    }
+    @container result(max-width: 600px){
+        .result__btn{
+            font-size: clamp(14px, 3cqi, 20px);
+        }
+    }
+    @container result(max-width: 450px){
+        .result__list{
+            grid-template-columns: 1fr;
+            padding-bottom: 110px;
+        }
+    }
+     @media (max-width: $r_desk){
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+      @media (max-width: $r_tab){
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
     &__list {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 30px;
         margin-top: 50px;
+        position: relative;
+        @media(max-width: $r_tab){
+            gap: 20px;
+        }
     }
     &__item {
         background-color: $light;
         border-radius: $br-min;
         padding: 30px;
+        @media(max-width: $r_desk){
+            padding: clamp(20px, 2.8vw, 30px);
+        }
         &._subgrid{
             grid-column: 2 / 5;
             display: grid;
@@ -625,6 +948,9 @@ button {
             align-items: center;
             border-radius: 20px;
             padding: 30px;
+            @media(max-width: $r_desk){
+                grid-template-rows: inherit;
+            }
         }
     }
     &__text{
@@ -673,6 +999,14 @@ button {
 .areas {
     margin-top: 150px;
     margin-bottom: 150px;
+     @media (max-width: $r_desk){
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+      @media (max-width: $r_tab){
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
     &__link {
         display: flex;
         justify-content: space-between;
@@ -717,16 +1051,17 @@ button {
             background-repeat: no-repeat;
             background-size: contain;
             position: absolute;
-            left: 770px;
+            left: 44vw;
             opacity: 0;
             transform: scale(0);
             transition: $tr;
         }
         &._acoustic {
             &::before {
-                width: 568px;
+                width: clamp(200px, 37vw,568px);
                 height: 314px;
                 background-image: url(../images/areas/acoustic.png);
+                background-position: center;
                 top: calc(50% - 157px);
             }
         }
@@ -736,6 +1071,7 @@ button {
                 height: 474px;
                 background-image: url(../images/areas/drums.png);
                 top: calc(50% - 237px);
+                background-position: center;
             }
         }
         &._violin {
@@ -744,6 +1080,7 @@ button {
                 height: 528px;
                 background-image: url(../images/areas/violin.png);
                 top: calc(50% - 264px);
+                background-position: center;
             }
         }
         &._bas-guitar {
@@ -752,6 +1089,7 @@ button {
                 height: 394px;
                 background-image: url(../images/areas/bas-guitar.png);
                 top: calc(50% - 197px);
+                background-position: center;
             }
         }
     }
@@ -765,6 +1103,10 @@ button {
     padding: 30px 50px;
     margin-bottom: 30px;
     border-radius: $br-min;
+    @media(max-width: $r_desk_wxga){
+        grid-template-columns: 1fr 160px;
+        gap: 20px;
+    }
     &__text{
         margin-top: 0;
         margin-bottom: 0;
@@ -782,9 +1124,19 @@ button {
             }
         }
     }
+    &__info {
+        @media(max-width: $r_desk_wxga){
+            grid-column: 1 / 3;
+        }
+    }
     &__copy {
         text-align: right;
         align-self: end;
+        @media(max-width: $r_desk_wxga){
+            grid-column: 1 / 3;
+            text-align: left;
+            align-self: start;
+        }
     }
 }
 
