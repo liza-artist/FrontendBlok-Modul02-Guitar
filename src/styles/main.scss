@@ -199,10 +199,10 @@ button {
 }
 .container {
     width: 100%;
-    max-width: 1920px;
+    max-width: 1860px;
     margin: 0 auto;
-    padding-left: 45px;
-    padding-right: 45px;
+    padding-left: 7px;
+    padding-right: 0;
     box-sizing: border-box;
     @media (max-width: $r_desk){
         padding-left: 20px;
@@ -267,7 +267,7 @@ button {
             &:hover {
                 &::before{
                     width: 100%;
-                        transform: scale(1);
+                    transform: scale(1);
                     opacity: 1;
                 }
                 .banner__decor {
@@ -279,6 +279,13 @@ button {
                 } 
                 }
             }
+            /* @media(max-width: $r_desk_wxga){
+                .banner__decor:hover {
+                    &::before{
+                        display: none;
+                    }
+                }
+            } */
         }
         @media(max-width: $r_desk_full){
             padding: 30px 0 30px 30px;
@@ -846,7 +853,7 @@ button {
     &__list{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 23px;
+        gap: 38px;
         margin-top: 50px;
         @media (max-width: $r_desk_full){
             grid-template-columns: repeat(2, 1fr);
@@ -999,6 +1006,9 @@ button {
 .areas {
     margin-top: 150px;
     margin-bottom: 150px;
+    > .title-h2{
+        margin-bottom: 50px;
+    }
      @media (max-width: $r_desk){
         margin-top: 100px;
         margin-bottom: 100px;
@@ -1018,6 +1028,9 @@ button {
         border-radius: 0;
         position: relative;
         transition: $tr;
+        font-size: 32px;
+        line-height: 150%;
+        color: $light;
         &:not(:last-child){
             border-bottom: 1px solid $accent;
             margin-bottom: 30px;
@@ -1100,7 +1113,7 @@ button {
     grid-template-columns: 1fr 450px;
     gap: 10px 20px;
     background-color: $dark;
-    padding: 30px 50px;
+    padding: 26px 50px 30px 42px;
     margin-bottom: 30px;
     border-radius: $br-min;
     @media(max-width: $r_desk_wxga){
