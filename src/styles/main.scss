@@ -230,6 +230,9 @@ button {
         margin-top: 88px;
         margin-bottom: 70px;
     }
+     @media(max-width:($r_tab - 20px)){
+        gap: 30px;
+     }
     &__main {
         flex-basis: 60.5%;
         display: flex;
@@ -334,6 +337,9 @@ button {
         @media (max-width: ($r_desk - 24px)){
             font-size: 18px;
         }
+        @media (max-width: $r_mobile_500){
+            font-size: 12px;
+        }
         span {
             display: block;
             font-size: 32px;
@@ -342,6 +348,9 @@ button {
             @media (max-width: ($r_desk - 24px)){
                 font-size: 20px;
                 margin-top: 12px;
+            }
+            @media (max-width: $r_mobile_500){
+                font-size: 14px;
             }
         }
     }
@@ -409,6 +418,11 @@ button {
         @media(max-width: $r_tab){
             font-size: 40px;
         }
+        @media(max-width:($r_tab - 20px)){
+            font-size: clamp(25px, 3.3vw + 0.75rem, 40px);
+            margin-right: 20px;
+            margin-bottom: 30px;
+        }
     }
 
      &__btn {
@@ -432,6 +446,11 @@ button {
         }
         @media(max-width: $r_desk_full){
             margin-top: 50px;
+        }
+        @media(max-width:($r_tab - 20px)){
+            margin-top: 12px;
+            padding: 32px 85px;
+            font-size: 14px;
         }
         
     }
@@ -466,6 +485,11 @@ button {
         @media(max-width: $r_tab){
             font-size: clamp(18px, 1.5vw + 0.8rem, 24px);
         }
+        @media(max-width:($r_tab - 20px)){
+            margin-bottom: 20px;
+        }
+
+       
     }
 
     &__text {
@@ -577,6 +601,9 @@ button {
     }
       @media (max-width: $r_tab){
         margin-bottom: 80px;
+    }
+    @media(max-width:$r_mobile_400){
+        margin-bottom: 50px;
     }
     &__title {
         flex-basis: 395px;
@@ -789,7 +816,10 @@ button {
         border-radius: $br-min;
         padding: 20px 25px 20px 30px;
         margin-bottom: 24px;
-
+        @media(max-width:$r_mobile_600){
+            font-size: 14px;
+            padding: 18px 15px;
+        }
         &::after{
             content: '';
             display: block;
@@ -798,6 +828,10 @@ button {
             background-image: url(../images/ui/minus.svg);
             background-repeat: no-repeat;
             background-size: contain;
+            @media(max-width:$r_mobile_600){
+                width: 40px;
+                height: 40px;
+            }
         }
         &.active {
             &::after{
@@ -812,6 +846,9 @@ button {
         background-color: $light;
         border-radius: $br-min;
         padding: 14px 50px 17px 50px;
+        @media(max-width:$r_mobile_400){
+            padding: 20px 15px
+        }
     }
     &__list{
         list-style-type: none;
@@ -825,6 +862,10 @@ button {
         line-height: 110%;
         font-weight: 300;
         color: $dark;
+        @media(max-width:$r_mobile_600){
+            font-size: 12px;
+        }
+        
         & + &{
             margin-top: 44px;
         }
@@ -850,6 +891,11 @@ button {
         padding-top: 80px;
         padding-bottom: 80px;
     }
+    @media(max-width:$r_mobile_400){
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    
     &__list{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -894,10 +940,12 @@ button {
     margin-bottom: 150px;
     container-type: inline-size;
     container-name: result;
+    
     @container result(max-width: 935px){
         .result__list{
             grid-template-columns: repeat(2, 1fr);
             padding-bottom: 140px;
+        
         }
         .result__item._subgrid{
             grid-column: inherit;
@@ -930,6 +978,10 @@ button {
         margin-top: 80px;
         margin-bottom: 80px;
     }
+    @media(max-width:$r_mobile_400){
+         margin-top: 50px;
+        margin-bottom: 50px;
+    }
     &__list {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -939,6 +991,10 @@ button {
         @media(max-width: $r_tab){
             gap: 20px;
         }
+        @media(max-width:$r_mobile_400){
+            grid-template-columns: 1fr;
+            margin-top: 20px;
+        }  
     }
     &__item {
         background-color: $light;
@@ -1008,6 +1064,9 @@ button {
     margin-bottom: 150px;
     > .title-h2{
         margin-bottom: 50px;
+        @media (max-width: $r_mobile_600){
+            margin-bottom: 20px;
+        }
     }
      @media (max-width: $r_desk){
         margin-top: 100px;
@@ -1031,6 +1090,10 @@ button {
         font-size: 32px;
         line-height: 150%;
         color: $light;
+        @media (max-width: $r_mobile_600){
+            font-size: 14px;
+            padding: 10px;
+        }
         &:not(:last-child){
             border-bottom: 1px solid $accent;
             margin-bottom: 30px;
@@ -1056,7 +1119,11 @@ button {
             background-image: url(../images/ui/arrow-rotate.svg);
             background-repeat: no-repeat;
             background-size: contain;
-             transition: $tr;
+            transition: $tr;
+            @media (max-width: $r_mobile_600){
+                width: 40px;
+                height: 40px;
+            }
         }
         &::before {
             content: '';
@@ -1076,7 +1143,11 @@ button {
                 background-image: url(../images/areas/acoustic.png);
                 background-position: center;
                 top: calc(50% - 157px);
+                @media (max-width: $r_tab){
+                    display: none;
+                }
             }
+         
         }
         &._drums {
             &::before {
@@ -1085,6 +1156,9 @@ button {
                 background-image: url(../images/areas/drums.png);
                 top: calc(50% - 237px);
                 background-position: center;
+                @media (max-width: $r_tab){
+                    display: none;
+                }
             }
         }
         &._violin {
@@ -1094,6 +1168,9 @@ button {
                 background-image: url(../images/areas/violin.png);
                 top: calc(50% - 264px);
                 background-position: center;
+                @media (max-width: $r_tab){
+                    display: none;
+                }
             }
         }
         &._bas-guitar {
@@ -1103,6 +1180,9 @@ button {
                 background-image: url(../images/areas/bas-guitar.png);
                 top: calc(50% - 197px);
                 background-position: center;
+                @media (max-width: $r_tab){
+                    display: none;
+                }
             }
         }
     }
@@ -1119,6 +1199,9 @@ button {
     @media(max-width: $r_desk_wxga){
         grid-template-columns: 1fr 160px;
         gap: 20px;
+    }
+    @media(max-width: $r_mobile_600){
+        grid-template-columns: 1fr;
     }
     &__text{
         margin-top: 0;
