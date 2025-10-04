@@ -276,6 +276,11 @@ button {
                     width: 100%;
                     transform: scale(1);
                     opacity: 1;
+                    @media (max-width: ($r_desk - 24px)){
+                        height: 100%;
+                        border-radius: 20px;
+                        border-color: $accent;
+                    }
                 }
                 .banner__decor {
                     background-color: $accent;
@@ -285,14 +290,8 @@ button {
                     opacity: 1;
                 } 
                 }
+                
             }
-            /* @media(max-width: $r_desk_wxga){
-                .banner__decor:hover {
-                    &::before{
-                        display: none;
-                    }
-                }
-            } */
         }
         @media(max-width: $r_desk_full){
             padding: 30px 0 30px 30px;
@@ -388,7 +387,7 @@ button {
             position: absolute;
             right: 0;
             top: -1px;
-            @media (max-width: ($r_desk - 24px)){
+            @media(max-width: ($r_desk - 24px)){
                 display: none;
             }
         }
@@ -405,8 +404,11 @@ button {
             position: absolute;
             right: 0;
             top: -1px;
-            opacity: 0;
+            opacity: 0; 
             transition: $tr;
+            @media(max-width: ($r_desk - 24px)){
+                display: none;
+            }
         }
     }
 
