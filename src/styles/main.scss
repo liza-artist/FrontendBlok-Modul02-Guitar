@@ -543,6 +543,7 @@ button {
     animation: move-left 20s infinite linear alternate;
     margin-top: 126px;
     margin-bottom: 127px;
+    overflow: hidden;
     @media (max-width: $r_desk){
         margin-top: 100px;
         margin-bottom: 100px;
